@@ -1,6 +1,14 @@
-# Evaluador de Calidad de Datos
+# Evaluador de Calidad de Datos "PacMClean"
 
 Proyecto con backend FastAPI y frontend React (Vite), manteniendo el motor determinista, acciones aplicables, comparación, batch y exportación a Power BI.
+
+PacClean AI es una herramienta de limpieza y preparación de datos que combina inteligencia artificial con reglas determinísticas para transformar datasets crudos en información lista para análisis.
+
+Inspirado en la estética arcade de los 80s, PacClean “devora” inconsistencias, valores nulos y errores, convirtiendo procesos complejos de data cleaning en una experiencia simple, visual y controlada.
+
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/ccb92dda-1936-4004-bfc4-e3266434b7eb" />
+
+
 
 ## Estructura
 
