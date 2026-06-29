@@ -1,0 +1,42 @@
+
+    <html>
+    <head><meta charset="utf-8"><style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; font-size: 12px; }
+    th { background: #f4f4f4; }
+    .score { font-size: 22px; font-weight: bold; }
+    </style></head>
+    <body>
+    <h1>Reporte de Calidad de Datos</h1>
+    <div class="score">Score: 88/100</div>
+    <p>Basado en el JSON proporcionado, aquí están las recomendaciones para mejorar la calidad de los datos:
+
+1. **Outliers**:
+   - Se han detectado outliers significativos en tres columnas numéricas: `Unit Cost`, `Revenue` y `Gross Margin`. La cantidad de outliers es considerable (247, 323 y 549 respectivamente).
+     - **Recomendación**: Considerar la eliminación o el recorte de estos valores atípicos utilizando un método robusto como IQR para mitigar su impacto en los análisis estadísticos.
+
+2. **Datos Sensibles (PII)**:
+   - Se han identificado posibles datos personales sensibles (PII) en las columnas `Unit Price`, `Unit Cost`, `Revenue` y `Gross Margin`.
+     - **Recomendación**: Aplicar una máscara o anonimización a estos valores para proteger la privacidad de los individuos involucrados. Específicamente, se sugiere utilizar tipos de PII como "dni" y "phone".
+
+3. **Consistencia en el formato de texto**:
+   - La columna `Sales Channel` tiene inconsistencias en el formato del texto (ejemplo: "In-Store", "in-store").
+     - **Recomendación**: Normalizar los valores textuales para asegurar consistencia, por ejemplo, convertir todos a minúsculas o mayúsculas.
+
+4. **Consistencia en las fechas**:
+   - Las columnas `OrderDate` y `DeliveryDate` tienen un formato de fecha consistente.
+     - **Recomendación**: Asegurarse que todas las fechas sigan el mismo formato (YYYY-MM-DD) para facilitar la manipulación y análisis.
+
+5. **Consistencia en los identificadores**:
+   - Las columnas `_SalesTeamID`, `_CustomerID`, `_StoreID` y `_ProductID` tienen un alto número de valores únicos, lo que sugiere una alta cardinalidad.
+     - **Recomendación**: Evaluar si es necesario reducir la cardinalidad de estas columnas para mejorar el rendimiento del análisis. Esto podría implicar la agrupación o categorización de ciertos identificadores.
+
+Estas recomendaciones ayudarán a mejorar la calidad y consistencia de los datos, facilitando así un mejor análisis y toma de decisiones basada en estos datos.</p>
+    <h2>Hallazgos</h2>
+    <table><tr><th>Tipo</th><th>Columna</th><th>Severidad</th><th>Detalle</th></tr><tr><td>outliers</td><td>Unit Cost</td><td>medium</td><td>Se detectaron 247 outliers en 'Unit Cost'.</td></tr><tr><td>outliers</td><td>Revenue</td><td>medium</td><td>Se detectaron 323 outliers en 'Revenue'.</td></tr><tr><td>outliers</td><td>Gross Margin</td><td>medium</td><td>Se detectaron 549 outliers en 'Gross Margin'.</td></tr><tr><td>pii_detected</td><td>Unit Price</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Price'.</td></tr><tr><td>pii_detected</td><td>Unit Cost</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Cost'.</td></tr><tr><td>pii_detected</td><td>Revenue</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Revenue'.</td></tr><tr><td>pii_detected</td><td>Gross Margin</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Gross Margin'.</td></tr></table>
+    <h2>Diccionario de datos</h2>
+    <table><tr><th>Columna</th><th>Tipo</th><th>% Nulos</th><th>Únicos</th></tr><tr><td>OrderNumber</td><td>categorical/text</td><td>0.0</td><td>7991</td></tr><tr><td>Sales Channel</td><td>categorical/text</td><td>0.0</td><td>4</td></tr><tr><td>OrderDate</td><td>date</td><td>0.0</td><td>945</td></tr><tr><td>DeliveryDate</td><td>date</td><td>0.0</td><td>966</td></tr><tr><td>DeliveryTime</td><td>numeric</td><td>0.0</td><td>36</td></tr><tr><td>_SalesTeamID</td><td>numeric</td><td>0.0</td><td>28</td></tr><tr><td>_CustomerID</td><td>numeric</td><td>0.0</td><td>50</td></tr><tr><td>_StoreID</td><td>numeric</td><td>0.0</td><td>367</td></tr><tr><td>_ProductID</td><td>numeric</td><td>0.0</td><td>47</td></tr><tr><td>Order Quantity</td><td>numeric</td><td>0.0</td><td>8</td></tr><tr><td>Unit Price</td><td>numeric</td><td>0.0</td><td>664</td></tr><tr><td>Unit Cost</td><td>numeric</td><td>0.0</td><td>5581</td></tr><tr><td>Revenue</td><td>numeric</td><td>0.0</td><td>2323</td></tr><tr><td>Gross Margin</td><td>numeric</td><td>0.0</td><td>6992</td></tr></table>
+    </body>
+    </html>
+    

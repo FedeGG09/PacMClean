@@ -1,0 +1,39 @@
+
+    <html>
+    <head><meta charset="utf-8"><style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; font-size: 12px; }
+    th { background: #f4f4f4; }
+    .score { font-size: 22px; font-weight: bold; }
+    </style></head>
+    <body>
+    <h1>Reporte de Calidad de Datos</h1>
+    <div class="score">Score: 88/100</div>
+    <p>Basado en el JSON proporcionado, aquí están las recomendaciones para mejorar la calidad de los datos:
+
+1. **Outliers**:
+   - Se han detectado outliers significativos en tres columnas numéricas: `Unit Cost`, `Revenue` y `Gross Margin`. Los valores atípicos pueden distorsionar análisis estadísticos y modelos predictivos.
+     - Para la columna `Unit Cost`: 247 outliers fueron identificados con un valor de métrica de 3.09.
+     - Para la columna `Revenue`: 323 outliers fueron identificados con un valor de métrica de 4.04.
+     - Para la columna `Gross Margin`: 549 outliers fueron identificados con un valor de métrica de 6.87.
+
+   **Recomendación**: Se sugiere aplicar el método IQR (Interquartile Range) para recortar los valores atípicos en estas columnas, lo que ayudará a mitigar la influencia negativa de estos outliers en cualquier análisis posterior.
+
+2. **Datos Sensibles**:
+   - Se han detectado posibles datos sensibles (PII) en cuatro columnas numéricas: `Unit Price`, `Unit Cost`, `Revenue` y `Gross Margin`.
+     - Para la columna `Unit Price`: 9 valores potencialmente sensibles fueron identificados.
+     - Para la columna `Unit Cost`: 33 valores potencialmente sensibles fueron identificados.
+     - Para la columna `Revenue`: 7 valores potencialmente sensibles fueron identificados.
+     - Para la columna `Gross Margin`: 39 valores potencialmente sensibles fueron identificados.
+
+   **Recomendación**: Se sugiere aplicar una máscara para ocultar los datos sensibles en estas columnas, específicamente para tipos de PII como números de teléfono y DNI. Esto es crucial para cumplir con las regulaciones de privacidad de datos y proteger la información confidencial.
+
+Estas recomendaciones ayudarán a mejorar la calidad de los datos y asegurar que no se incluyan valores atípicos o datos sensibles en el análisis posterior.</p>
+    <h2>Hallazgos</h2>
+    <table><tr><th>Tipo</th><th>Columna</th><th>Severidad</th><th>Detalle</th></tr><tr><td>outliers</td><td>Unit Cost</td><td>medium</td><td>Se detectaron 247 outliers en 'Unit Cost'.</td></tr><tr><td>outliers</td><td>Revenue</td><td>medium</td><td>Se detectaron 323 outliers en 'Revenue'.</td></tr><tr><td>outliers</td><td>Gross Margin</td><td>medium</td><td>Se detectaron 549 outliers en 'Gross Margin'.</td></tr><tr><td>pii_detected</td><td>Unit Price</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Price'.</td></tr><tr><td>pii_detected</td><td>Unit Cost</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Cost'.</td></tr><tr><td>pii_detected</td><td>Revenue</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Revenue'.</td></tr><tr><td>pii_detected</td><td>Gross Margin</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Gross Margin'.</td></tr></table>
+    <h2>Diccionario de datos</h2>
+    <table><tr><th>Columna</th><th>Tipo</th><th>% Nulos</th><th>Únicos</th></tr><tr><td>OrderNumber</td><td>categorical/text</td><td>0.0</td><td>7991</td></tr><tr><td>Sales Channel</td><td>categorical/text</td><td>0.0</td><td>4</td></tr><tr><td>OrderDate</td><td>date</td><td>0.0</td><td>945</td></tr><tr><td>DeliveryDate</td><td>date</td><td>0.0</td><td>966</td></tr><tr><td>DeliveryTime</td><td>numeric</td><td>0.0</td><td>36</td></tr><tr><td>_SalesTeamID</td><td>numeric</td><td>0.0</td><td>28</td></tr><tr><td>_CustomerID</td><td>numeric</td><td>0.0</td><td>50</td></tr><tr><td>_StoreID</td><td>numeric</td><td>0.0</td><td>367</td></tr><tr><td>_ProductID</td><td>numeric</td><td>0.0</td><td>47</td></tr><tr><td>Order Quantity</td><td>numeric</td><td>0.0</td><td>8</td></tr><tr><td>Unit Price</td><td>numeric</td><td>0.0</td><td>664</td></tr><tr><td>Unit Cost</td><td>numeric</td><td>0.0</td><td>5581</td></tr><tr><td>Revenue</td><td>numeric</td><td>0.0</td><td>2323</td></tr><tr><td>Gross Margin</td><td>numeric</td><td>0.0</td><td>6992</td></tr></table>
+    </body>
+    </html>
+    

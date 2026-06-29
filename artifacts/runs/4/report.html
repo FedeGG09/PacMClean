@@ -1,0 +1,20 @@
+
+    <html>
+    <head><meta charset="utf-8"><style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; font-size: 12px; }
+    th { background: #f4f4f4; }
+    .score { font-size: 22px; font-weight: bold; }
+    </style></head>
+    <body>
+    <h1>Reporte de Calidad de Datos</h1>
+    <div class="score">Score: 89/100</div>
+    <p>La base 'tmpx100fm4_.csv' fue analizada con 7 hallazgos. Score de calidad: 89/100.</p>
+    <h2>Hallazgos</h2>
+    <table><tr><th>Tipo</th><th>Columna</th><th>Severidad</th><th>Detalle</th></tr><tr><td>duplicates</td><td></td><td>high</td><td>Se detectaron 533 filas duplicadas exactas.</td></tr><tr><td>outliers</td><td>ID</td><td>medium</td><td>Se detectaron 2531 outliers en 'ID'.</td></tr><tr><td>outliers</td><td>Price</td><td>medium</td><td>Se detectaron 1073 outliers en 'Price'.</td></tr><tr><td>outliers</td><td>Prod. year</td><td>medium</td><td>Se detectaron 982 outliers en 'Prod. year'.</td></tr><tr><td>outliers</td><td>Engine volume</td><td>medium</td><td>Se detectaron 1280 outliers en 'Engine volume'.</td></tr><tr><td>category_typos</td><td>Fuel type</td><td>medium</td><td>Hay variantes raras o posibles typos en 'Fuel type'.</td></tr><tr><td>pii_detected</td><td>ID</td><td>high</td><td>Se detectaron posibles datos sensibles en 'ID'.</td></tr></table>
+    <h2>Diccionario de datos</h2>
+    <table><tr><th>Columna</th><th>Tipo</th><th>% Nulos</th><th>Únicos</th></tr><tr><td>ID</td><td>numeric</td><td>0.0</td><td>18924</td></tr><tr><td>Price</td><td>numeric</td><td>0.0</td><td>2315</td></tr><tr><td>Levy</td><td>categorical/text</td><td>0.0</td><td>559</td></tr><tr><td>Manufacturer</td><td>categorical/text</td><td>0.0</td><td>65</td></tr><tr><td>Model</td><td>categorical/text</td><td>0.0</td><td>1590</td></tr><tr><td>Prod. year</td><td>numeric</td><td>0.0</td><td>54</td></tr><tr><td>Category</td><td>categorical/text</td><td>0.0</td><td>11</td></tr><tr><td>Leather interior</td><td>boolean</td><td>0.0</td><td>2</td></tr><tr><td>Fuel type</td><td>categorical/text</td><td>0.0</td><td>7</td></tr><tr><td>Engine volume</td><td>numeric</td><td>0.0</td><td>107</td></tr><tr><td>Mileage</td><td>categorical/text</td><td>0.0</td><td>7687</td></tr><tr><td>Cylinders</td><td>numeric</td><td>0.0</td><td>13</td></tr><tr><td>Gear box type</td><td>categorical/text</td><td>0.0</td><td>4</td></tr><tr><td>Drive wheels</td><td>categorical/text</td><td>0.0</td><td>3</td></tr><tr><td>Doors</td><td>categorical/text</td><td>0.0</td><td>3</td></tr><tr><td>Wheel</td><td>categorical/text</td><td>0.0</td><td>2</td></tr><tr><td>Color</td><td>categorical/text</td><td>0.0</td><td>16</td></tr><tr><td>Airbags</td><td>numeric</td><td>0.0</td><td>17</td></tr></table>
+    </body>
+    </html>
+    

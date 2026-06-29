@@ -1,0 +1,50 @@
+
+    <html>
+    <head><meta charset="utf-8"><style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; font-size: 12px; }
+    th { background: #f4f4f4; }
+    .score { font-size: 22px; font-weight: bold; }
+    </style></head>
+    <body>
+    <h1>Reporte de Calidad de Datos</h1>
+    <div class="score">Score: 88/100</div>
+    <p>Basado en el JSON proporcionado, aquí están las recomendaciones para mejorar la calidad de los datos:
+
+1. **Outliers en 'Unit Cost'**:
+   - Se han detectado 247 outliers en la columna 'Unit Cost'. Esto puede indicar valores atípicos que pueden distorsionar análisis estadísticos.
+   - **Recomendación**: Aplicar un método de recorte de outliers (clip_outliers) utilizando el método IQR para esta columna.
+
+2. **Outliers en 'Revenue'**:
+   - Se han identificado 323 outliers en la columna 'Revenue'. Estos valores atípicos pueden afectar significativamente los análisis financieros.
+   - **Recomendación**: Recortar estos outliers utilizando el método IQR para mejorar la consistencia de los datos.
+
+3. **Outliers en 'Gross Margin'**:
+   - Se han detectado 549 outliers en la columna 'Gross Margin'. Estos valores pueden distorsionar las métricas financieras.
+   - **Recomendación**: Recortar estos outliers utilizando el método IQR para mejorar la precisión de los análisis.
+
+4. **Datos Sensibles (PII) en 'Unit Price'**:
+   - Se han identificado posibles datos sensibles (como números de teléfono) en la columna 'Unit Price'.
+   - **Recomendación**: Ocultar estos datos sensibles utilizando una máscara para proteger la privacidad.
+
+5. **Datos Sensibles (PII) en 'Unit Cost'**:
+   - Se han identificado posibles datos sensibles (como números de DNI y teléfonos) en la columna 'Unit Cost'.
+   - **Recomendación**: Ocultar estos datos sensibles utilizando una máscara para proteger la privacidad.
+
+6. **Datos Sensibles (PII) en 'Revenue'**:
+   - Se han identificado posibles datos sensibles (como números de teléfono) en la columna 'Revenue'.
+   - **Recomendación**: Ocultar estos datos sensibles utilizando una máscara para proteger la privacidad.
+
+7. **Datos Sensibles (PII) en 'Gross Margin'**:
+   - Se han identificado posibles datos sensibles (como números de DNI y teléfonos) en la columna 'Gross Margin'.
+   - **Recomendación**: Ocultar estos datos sensibles utilizando una máscara para proteger la privacidad.
+
+Estas acciones ayudarán a mejorar la calidad y confiabilidad de los datos, minimizando el impacto de valores atípicos y protegiendo información sensible.</p>
+    <h2>Hallazgos</h2>
+    <table><tr><th>Tipo</th><th>Columna</th><th>Severidad</th><th>Detalle</th></tr><tr><td>outliers</td><td>Unit Cost</td><td>medium</td><td>Se detectaron 247 outliers en 'Unit Cost'.</td></tr><tr><td>outliers</td><td>Revenue</td><td>medium</td><td>Se detectaron 323 outliers en 'Revenue'.</td></tr><tr><td>outliers</td><td>Gross Margin</td><td>medium</td><td>Se detectaron 549 outliers en 'Gross Margin'.</td></tr><tr><td>pii_detected</td><td>Unit Price</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Price'.</td></tr><tr><td>pii_detected</td><td>Unit Cost</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Cost'.</td></tr><tr><td>pii_detected</td><td>Revenue</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Revenue'.</td></tr><tr><td>pii_detected</td><td>Gross Margin</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Gross Margin'.</td></tr></table>
+    <h2>Diccionario de datos</h2>
+    <table><tr><th>Columna</th><th>Tipo</th><th>% Nulos</th><th>Únicos</th></tr><tr><td>OrderNumber</td><td>categorical/text</td><td>0.0</td><td>7991</td></tr><tr><td>Sales Channel</td><td>categorical/text</td><td>0.0</td><td>4</td></tr><tr><td>OrderDate</td><td>date</td><td>0.0</td><td>945</td></tr><tr><td>DeliveryDate</td><td>date</td><td>0.0</td><td>966</td></tr><tr><td>DeliveryTime</td><td>numeric</td><td>0.0</td><td>36</td></tr><tr><td>_SalesTeamID</td><td>numeric</td><td>0.0</td><td>28</td></tr><tr><td>_CustomerID</td><td>numeric</td><td>0.0</td><td>50</td></tr><tr><td>_StoreID</td><td>numeric</td><td>0.0</td><td>367</td></tr><tr><td>_ProductID</td><td>numeric</td><td>0.0</td><td>47</td></tr><tr><td>Order Quantity</td><td>numeric</td><td>0.0</td><td>8</td></tr><tr><td>Unit Price</td><td>numeric</td><td>0.0</td><td>664</td></tr><tr><td>Unit Cost</td><td>numeric</td><td>0.0</td><td>5581</td></tr><tr><td>Revenue</td><td>numeric</td><td>0.0</td><td>2323</td></tr><tr><td>Gross Margin</td><td>numeric</td><td>0.0</td><td>6992</td></tr></table>
+    </body>
+    </html>
+    

@@ -1,0 +1,723 @@
+{
+  "source_name": "tmpx100fm4_.csv",
+  "summary": {
+    "rows": 19237,
+    "cols": 18,
+    "quality_score": 89
+  },
+  "executive_summary": "La base 'tmpx100fm4_.csv' fue analizada con 7 hallazgos. Score de calidad: 89/100.",
+  "findings": [
+    {
+      "id": "duplicates_exact",
+      "type": "duplicates",
+      "severity": "high",
+      "metric": 2.77,
+      "count": 533,
+      "message": "Se detectaron 533 filas duplicadas exactas.",
+      "examples": [
+        {
+          "ID": 44731507,
+          "Price": 16621,
+          "Levy": "1018",
+          "Manufacturer": "CHEVROLET",
+          "Model": "Equinox",
+          "Prod. year": 2011,
+          "Category": "Jeep",
+          "Leather interior": "No",
+          "Fuel type": "Petrol",
+          "Engine volume": "3",
+          "Mileage": "192000 km",
+          "Cylinders": 6.0,
+          "Gear box type": "Tiptronic",
+          "Drive wheels": "4x4",
+          "Doors": "04-May",
+          "Wheel": "Left wheel",
+          "Color": "Black",
+          "Airbags": 8
+        },
+        {
+          "ID": 45801686,
+          "Price": 18826,
+          "Levy": "531",
+          "Manufacturer": "HYUNDAI",
+          "Model": "Elantra",
+          "Prod. year": 2012,
+          "Category": "Sedan",
+          "Leather interior": "Yes",
+          "Fuel type": "Petrol",
+          "Engine volume": "1.6",
+          "Mileage": "112645 km",
+          "Cylinders": 4.0,
+          "Gear box type": "Automatic",
+          "Drive wheels": "Front",
+          "Doors": "04-May",
+          "Wheel": "Left wheel",
+          "Color": "Silver",
+          "Airbags": 4
+        },
+        {
+          "ID": 45790136,
+          "Price": 6899,
+          "Levy": "-",
+          "Manufacturer": "BMW",
+          "Model": "X5",
+          "Prod. year": 2000,
+          "Category": "Jeep",
+          "Leather interior": "Yes",
+          "Fuel type": "CNG",
+          "Engine volume": "4.4",
+          "Mileage": "200000 km",
+          "Cylinders": 8.0,
+          "Gear box type": "Automatic",
+          "Drive wheels": "4x4",
+          "Doors": "04-May",
+          "Wheel": "Left wheel",
+          "Color": "Silver",
+          "Airbags": 6
+        },
+        {
+          "ID": 45801684,
+          "Price": 19121,
+          "Levy": "531",
+          "Manufacturer": "HYUNDAI",
+          "Model": "Elantra",
+          "Prod. year": 2012,
+          "Category": "Sedan",
+          "Leather interior": "Yes",
+          "Fuel type": "Petrol",
+          "Engine volume": "1.6",
+          "Mileage": "121362 km",
+          "Cylinders": 4.0,
+          "Gear box type": "Automatic",
+          "Drive wheels": "Front",
+          "Doors": "04-May",
+          "Wheel": "Left wheel",
+          "Color": "Black",
+          "Airbags": 4
+        },
+        {
+          "ID": 45732386,
+          "Price": 36065,
+          "Levy": "639",
+          "Manufacturer": "HYUNDAI",
+          "Model": "Santa FE",
+          "Prod. year": 2014,
+          "Category": "Jeep",
+          "Leather interior": "Yes",
+          "Fuel type": "Diesel",
+          "Engine volume": "2",
+          "Mileage": "69191 km",
+          "Cylinders": 4.0,
+          "Gear box type": "Automatic",
+          "Drive wheels": "Front",
+          "Doors": "04-May",
+          "Wheel": "Left wheel",
+          "Color": "White",
+          "Airbags": 4
+        }
+      ],
+      "suggested_action": {
+        "action_type": "drop_duplicates",
+        "parameters": {
+          "keep": "first"
+        }
+      }
+    },
+    {
+      "id": "outliers_ID",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "ID",
+      "count": 2531,
+      "metric": 13.16,
+      "message": "Se detectaron 2531 outliers en 'ID'.",
+      "examples": [
+        {
+          "ID": 44731507
+        },
+        {
+          "ID": 45465200
+        },
+        {
+          "ID": 45168471
+        },
+        {
+          "ID": 44944581
+        },
+        {
+          "ID": 45542380
+        }
+      ],
+      "suggested_action": {
+        "action_type": "clip_outliers",
+        "parameters": {
+          "column": "ID",
+          "method": "iqr"
+        }
+      }
+    },
+    {
+      "id": "outliers_Price",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Price",
+      "count": 1073,
+      "metric": 5.58,
+      "message": "Se detectaron 1073 outliers en 'Price'.",
+      "examples": [
+        {
+          "Price": 59464
+        },
+        {
+          "Price": 51746
+        },
+        {
+          "Price": 55390
+        },
+        {
+          "Price": 87112
+        },
+        {
+          "Price": 53154
+        }
+      ],
+      "suggested_action": {
+        "action_type": "clip_outliers",
+        "parameters": {
+          "column": "Price",
+          "method": "iqr"
+        }
+      }
+    },
+    {
+      "id": "outliers_Prod. year",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Prod. year",
+      "count": 982,
+      "metric": 5.1,
+      "message": "Se detectaron 982 outliers en 'Prod. year'.",
+      "examples": [
+        {
+          "Prod. year": 1999
+        },
+        {
+          "Prod. year": 1997
+        },
+        {
+          "Prod. year": 1995
+        },
+        {
+          "Prod. year": 1998
+        },
+        {
+          "Prod. year": 1995
+        }
+      ],
+      "suggested_action": {
+        "action_type": "clip_outliers",
+        "parameters": {
+          "column": "Prod. year",
+          "method": "iqr"
+        }
+      }
+    },
+    {
+      "id": "outliers_Engine volume",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Engine volume",
+      "count": 1280,
+      "metric": 6.65,
+      "message": "Se detectaron 1280 outliers en 'Engine volume'.",
+      "examples": [
+        {
+          "Engine volume": "4"
+        },
+        {
+          "Engine volume": "4.7"
+        },
+        {
+          "Engine volume": "4.4"
+        },
+        {
+          "Engine volume": "3.6"
+        },
+        {
+          "Engine volume": "4"
+        }
+      ],
+      "suggested_action": {
+        "action_type": "clip_outliers",
+        "parameters": {
+          "column": "Engine volume",
+          "method": "iqr"
+        }
+      }
+    },
+    {
+      "id": "typos_Fuel type",
+      "type": "category_typos",
+      "severity": "medium",
+      "column": "Fuel type",
+      "count": 1,
+      "message": "Hay variantes raras o posibles typos en 'Fuel type'.",
+      "examples": [
+        "hydrogen"
+      ],
+      "suggested_action": {
+        "action_type": "normalize_categories",
+        "parameters": {
+          "column": "Fuel type",
+          "mode": "fuzzy"
+        }
+      }
+    },
+    {
+      "id": "pii_ID",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "ID",
+      "count": 50,
+      "examples": [
+        "45654403",
+        "44731507",
+        "45774419",
+        "45769185",
+        "45809263"
+      ],
+      "message": "Se detectaron posibles datos sensibles en 'ID'.",
+      "suggested_action": {
+        "action_type": "mask_pii",
+        "parameters": {
+          "column": "ID",
+          "pii_types": [
+            "phone"
+          ]
+        }
+      }
+    }
+  ],
+  "findings_display": [
+    {
+      "id": "duplicates_exact",
+      "type": "duplicates",
+      "severity": "high",
+      "column": "",
+      "count": 533,
+      "metric": 2.77,
+      "message": "Se detectaron 533 filas duplicadas exactas.",
+      "examples": "[{\"ID\": 44731507, \"Price\": 16621, \"Levy\": \"1018\", \"Manufacturer\": \"CHEVROLET\", \"Model\": \"Equinox\", \"Prod. year\": 2011, \"Category\": \"Jeep\", \"Leather interior\": \"No\", \"Fuel type\": \"Petrol\", \"Engine volume\": \"3\", \"Mileage\": \"192000 km\", \"Cylinders\": 6.0, \"Gear box type\": \"Tiptronic\", \"Drive wheels\": \"4x4\", \"Doors\": \"04-May\", \"Wheel\": \"Left wheel\", \"Color\": \"Black\", \"Airbags\": 8}, {\"ID\": 45801686, \"Price\": 18826, \"Levy\": \"531\", \"Manufacturer\": \"HYUNDAI\", \"Model\": \"Elantra\", \"Prod. year\": 2012, \"Category\": \"Sedan\", \"Leather interior\": \"Yes\", \"Fuel type\": \"Petrol\", \"Engine volume\": \"1.6\", \"Mileage\": \"112645 km\", \"Cylinders\": 4.0, \"Gear box type\": \"Automatic\", \"Drive wheels\": \"Front\", \"Doors\": \"04-May\", \"Wheel\": \"Left wheel\", \"Color\": \"Silver\", \"Airbags\": 4}, {\"ID\": 45790136, \"Price\": 6899, \"Levy\": \"-\", \"Manufacturer\": \"BMW\", \"Model\": \"X5\", \"Prod. year\": 2000, \"Category\": \"Jeep\", \"Leather interior\": \"Yes\", \"Fuel type\": \"CNG\", \"Engine volume\": \"4.4\", \"Mileage\": \"200000 km\", \"Cylinders\": 8.0, \"Gear box type\": \"Automatic\", \"Drive wheels\": \"4x4\", \"Doors\": \"04-May\", \"Wheel\": \"Left wheel\", \"Color\": \"Silver\", \"Airbags\": 6}, {\"ID\": 45801684, \"Price\": 19121, \"Levy\": \"531\", \"Manufacturer\": \"HYUNDAI\", \"Model\": \"Elantra\", \"Prod. year\": 2012, \"Category\": \"Sedan\", \"Leather interior\": \"Yes\", \"Fuel type\": \"Petrol\", \"Engine volume\": \"1.6\", \"Mileage\": \"121362 km\", \"Cylinders\": 4.0, \"Gear box type\": \"Automatic\", \"Drive wheels\": \"Front\", \"Doors\": \"04-May\", \"Wheel\": \"Left wheel\", \"Color\": \"Black\", \"Airbags\": 4}, {\"ID\": 45732386, \"Price\": 36065, \"Levy\": \"639\", \"Manufacturer\": \"HYUNDAI\", \"Model\": \"Santa FE\", \"Prod. year\": 2014, \"Category\": \"Jeep\", \"Leather interior\": \"Yes\", \"Fuel type\": \"Diesel\", \"Engine volume\": \"2\", \"Mileage\": \"69191 km\", \"Cylinders\": 4.0, \"Gear box type\": \"Automatic\", \"Drive wheels\": \"Front\", \"Doors\": \"04-May\", \"Wheel\": \"Left wheel\", \"Color\": \"White\", \"Airbags\": 4}]"
+    },
+    {
+      "id": "outliers_ID",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "ID",
+      "count": 2531,
+      "metric": 13.16,
+      "message": "Se detectaron 2531 outliers en 'ID'.",
+      "examples": "[{\"ID\": 44731507}, {\"ID\": 45465200}, {\"ID\": 45168471}, {\"ID\": 44944581}, {\"ID\": 45542380}]"
+    },
+    {
+      "id": "outliers_Price",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Price",
+      "count": 1073,
+      "metric": 5.58,
+      "message": "Se detectaron 1073 outliers en 'Price'.",
+      "examples": "[{\"Price\": 59464}, {\"Price\": 51746}, {\"Price\": 55390}, {\"Price\": 87112}, {\"Price\": 53154}]"
+    },
+    {
+      "id": "outliers_Prod. year",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Prod. year",
+      "count": 982,
+      "metric": 5.1,
+      "message": "Se detectaron 982 outliers en 'Prod. year'.",
+      "examples": "[{\"Prod. year\": 1999}, {\"Prod. year\": 1997}, {\"Prod. year\": 1995}, {\"Prod. year\": 1998}, {\"Prod. year\": 1995}]"
+    },
+    {
+      "id": "outliers_Engine volume",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Engine volume",
+      "count": 1280,
+      "metric": 6.65,
+      "message": "Se detectaron 1280 outliers en 'Engine volume'.",
+      "examples": "[{\"Engine volume\": \"4\"}, {\"Engine volume\": \"4.7\"}, {\"Engine volume\": \"4.4\"}, {\"Engine volume\": \"3.6\"}, {\"Engine volume\": \"4\"}]"
+    },
+    {
+      "id": "typos_Fuel type",
+      "type": "category_typos",
+      "severity": "medium",
+      "column": "Fuel type",
+      "count": 1,
+      "metric": null,
+      "message": "Hay variantes raras o posibles typos en 'Fuel type'.",
+      "examples": "[\"hydrogen\"]"
+    },
+    {
+      "id": "pii_ID",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "ID",
+      "count": 50,
+      "metric": null,
+      "message": "Se detectaron posibles datos sensibles en 'ID'.",
+      "examples": "[\"45654403\", \"44731507\", \"45774419\", \"45769185\", \"45809263\"]"
+    }
+  ],
+  "comparison": null,
+  "data_dictionary": [
+    {
+      "column": "ID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 18924,
+      "top_values": "45815361, 45815365, 45815363",
+      "samples": "45654403, 44731507, 45774419"
+    },
+    {
+      "column": "Price",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 2315,
+      "top_values": "15681, 470, 14113",
+      "samples": "13328, 16621, 8467"
+    },
+    {
+      "column": "Levy",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 559,
+      "top_values": "-, 765, 891",
+      "samples": "1399, 1018, -"
+    },
+    {
+      "column": "Manufacturer",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 65,
+      "top_values": "hyundai, toyota, mercedes-benz",
+      "samples": "LEXUS, CHEVROLET, HONDA"
+    },
+    {
+      "column": "Model",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 1590,
+      "top_values": "prius, sonata, camry",
+      "samples": "RX 450, Equinox, FIT"
+    },
+    {
+      "column": "Prod. year",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 54,
+      "top_values": "2012, 2014, 2013",
+      "samples": "2010, 2011, 2006"
+    },
+    {
+      "column": "Category",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 11,
+      "top_values": "sedan, jeep, hatchback",
+      "samples": "Jeep, Jeep, Hatchback"
+    },
+    {
+      "column": "Leather interior",
+      "inferred_type": "boolean",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 2,
+      "top_values": "yes, no",
+      "samples": "Yes, No, No"
+    },
+    {
+      "column": "Fuel type",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 7,
+      "top_values": "petrol, diesel, hybrid",
+      "samples": "Hybrid, Petrol, Petrol"
+    },
+    {
+      "column": "Engine volume",
+      "inferred_type": "numeric",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 107,
+      "top_values": "2, 2.5, 1.8",
+      "samples": "3.5, 3, 1.3"
+    },
+    {
+      "column": "Mileage",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 7687,
+      "top_values": "0 km, 200000 km, 150000 km",
+      "samples": "186005 km, 192000 km, 200000 km"
+    },
+    {
+      "column": "Cylinders",
+      "inferred_type": "numeric",
+      "raw_dtype": "float64",
+      "null_pct": 0.0,
+      "n_unique": 13,
+      "top_values": "4.0, 6.0, 8.0",
+      "samples": "6.0, 6.0, 4.0"
+    },
+    {
+      "column": "Gear box type",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 4,
+      "top_values": "automatic, tiptronic, manual",
+      "samples": "Automatic, Tiptronic, Variator"
+    },
+    {
+      "column": "Drive wheels",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 3,
+      "top_values": "front, 4x4, rear",
+      "samples": "4x4, 4x4, Front"
+    },
+    {
+      "column": "Doors",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 3,
+      "top_values": "04-may, 02-mar, >5",
+      "samples": "04-May, 04-May, 04-May"
+    },
+    {
+      "column": "Wheel",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 2,
+      "top_values": "left wheel, right-hand drive",
+      "samples": "Left wheel, Left wheel, Right-hand drive"
+    },
+    {
+      "column": "Color",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 16,
+      "top_values": "black, white, silver",
+      "samples": "Silver, Black, Black"
+    },
+    {
+      "column": "Airbags",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 17,
+      "top_values": "4, 12, 0",
+      "samples": "12, 8, 2"
+    }
+  ],
+  "llm_recommendations": {},
+  "llm_derived": null,
+  "alerts": [
+    "Alerta alta: Se detectaron posibles datos sensibles en 'ID'."
+  ],
+  "actions": [
+    {
+      "id": "drop_duplicates:{'keep': 'first'}",
+      "title": "Eliminar duplicados",
+      "description": "Se detectaron 533 filas duplicadas exactas.",
+      "action_type": "drop_duplicates",
+      "parameters": {
+        "keep": "first"
+      },
+      "risk_level": "high",
+      "estimated_affected_rows": 533,
+      "preview": {
+        "rows_to_drop": 313
+      }
+    },
+    {
+      "id": "clip_outliers:{'column': 'ID', 'method': 'iqr'}",
+      "title": "Limitar outliers en 'ID'",
+      "description": "Se detectaron 2531 outliers en 'ID'.",
+      "action_type": "clip_outliers",
+      "parameters": {
+        "column": "ID",
+        "method": "iqr"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 19237,
+      "preview": {
+        "outlier_rows": [
+          {
+            "ID": 44731507
+          },
+          {
+            "ID": 45465200
+          },
+          {
+            "ID": 45168471
+          },
+          {
+            "ID": 44944581
+          },
+          {
+            "ID": 45542380
+          }
+        ]
+      }
+    },
+    {
+      "id": "clip_outliers:{'column': 'Price', 'method': 'iqr'}",
+      "title": "Limitar outliers en 'Price'",
+      "description": "Se detectaron 1073 outliers en 'Price'.",
+      "action_type": "clip_outliers",
+      "parameters": {
+        "column": "Price",
+        "method": "iqr"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 19237,
+      "preview": {
+        "outlier_rows": [
+          {
+            "Price": 59464
+          },
+          {
+            "Price": 51746
+          },
+          {
+            "Price": 55390
+          },
+          {
+            "Price": 87112
+          },
+          {
+            "Price": 53154
+          }
+        ]
+      }
+    },
+    {
+      "id": "clip_outliers:{'column': 'Prod. year', 'method': 'iqr'}",
+      "title": "Limitar outliers en 'Prod. year'",
+      "description": "Se detectaron 982 outliers en 'Prod. year'.",
+      "action_type": "clip_outliers",
+      "parameters": {
+        "column": "Prod. year",
+        "method": "iqr"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 19237,
+      "preview": {
+        "outlier_rows": [
+          {
+            "Prod. year": 1999
+          },
+          {
+            "Prod. year": 1997
+          },
+          {
+            "Prod. year": 1995
+          },
+          {
+            "Prod. year": 1998
+          },
+          {
+            "Prod. year": 1995
+          }
+        ]
+      }
+    },
+    {
+      "id": "clip_outliers:{'column': 'Engine volume', 'method': 'iqr'}",
+      "title": "Limitar outliers en 'Engine volume'",
+      "description": "Se detectaron 1280 outliers en 'Engine volume'.",
+      "action_type": "clip_outliers",
+      "parameters": {
+        "column": "Engine volume",
+        "method": "iqr"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 19237,
+      "preview": {
+        "outlier_rows": [
+          {
+            "Engine volume": "4"
+          },
+          {
+            "Engine volume": "4.7"
+          },
+          {
+            "Engine volume": "4.4"
+          },
+          {
+            "Engine volume": "3.6"
+          },
+          {
+            "Engine volume": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "normalize_categories:{'column': 'Fuel type', 'mode': 'fuzzy'}",
+      "title": "Normalizar categorías en 'Fuel type'",
+      "description": "Hay variantes raras o posibles typos en 'Fuel type'.",
+      "action_type": "normalize_categories",
+      "parameters": {
+        "column": "Fuel type",
+        "mode": "fuzzy"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 19237,
+      "preview": {
+        "mapping_sample": {
+          "hybrid": "hybrid",
+          "petrol": "petrol",
+          "diesel": "diesel",
+          "cng": "cng",
+          "plug-in hybrid": "plug-in hybrid",
+          "lpg": "lpg",
+          "hydrogen": "hydrogen"
+        }
+      }
+    },
+    {
+      "id": "mask_pii:{'column': 'ID', 'pii_types': ['phone']}",
+      "title": "Enmascarar PII en 'ID'",
+      "description": "Se detectaron posibles datos sensibles en 'ID'.",
+      "action_type": "mask_pii",
+      "parameters": {
+        "column": "ID",
+        "pii_types": [
+          "phone"
+        ]
+      },
+      "risk_level": "low",
+      "estimated_affected_rows": 19237,
+      "preview": {
+        "note": "Preview no disponible"
+      }
+    }
+  ]
+}

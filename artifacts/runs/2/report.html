@@ -1,0 +1,39 @@
+
+    <html>
+    <head><meta charset="utf-8"><style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; font-size: 12px; }
+    th { background: #f4f4f4; }
+    .score { font-size: 22px; font-weight: bold; }
+    </style></head>
+    <body>
+    <h1>Reporte de Calidad de Datos</h1>
+    <div class="score">Score: 88/100</div>
+    <p>Basado en el JSON proporcionado, aquí están las recomendaciones para mejorar la calidad de los datos:
+
+1. **Outliers**:
+   - Se han detectado outliers significativos en tres columnas numéricas: `Unit Cost`, `Revenue` y `Gross Margin`.
+     - Para `Unit Cost`: 247 outliers.
+     - Para `Revenue`: 323 outliers.
+     - Para `Gross Margin`: 549 outliers.
+   - **Recomendación**: Se sugiere aplicar la acción de "clip_outliers" utilizando el método IQR (Interquartile Range) para estas tres columnas. Esto ayudará a mitigar los efectos distorsionadores que estos valores extremos pueden tener en análisis estadísticos posteriores.
+
+2. **Datos Sensibles**:
+   - Se han detectado posibles datos sensibles (PII, Personal Identifiable Information) en cuatro columnas numéricas: `Unit Price`, `Unit Cost`, `Revenue` y `Gross Margin`.
+     - Para `Unit Price`: 9 valores potencialmente sensibles.
+     - Para `Unit Cost`: 33 valores potencialmente sensibles.
+     - Para `Revenue`: 7 valores potencialmente sensibles.
+     - Para `Gross Margin`: 39 valores potencialmente sensibles.
+   - **Recomendación**: Se sugiere aplicar la acción de "mask_pii" para ocultar o anonimizar estos datos. Específicamente, se recomienda:
+       - Ocultar números telefónicos en `Unit Price` y `Revenue`.
+       - Ocultar DNI (Documento Nacional de Identidad) y números telefónicos en `Unit Cost` y `Gross Margin`.
+
+Estas acciones mejorarán la calidad de los datos al mitigar el impacto de valores atípicos y proteger información sensible.</p>
+    <h2>Hallazgos</h2>
+    <table><tr><th>Tipo</th><th>Columna</th><th>Severidad</th><th>Detalle</th></tr><tr><td>outliers</td><td>Unit Cost</td><td>medium</td><td>Se detectaron 247 outliers en 'Unit Cost'.</td></tr><tr><td>outliers</td><td>Revenue</td><td>medium</td><td>Se detectaron 323 outliers en 'Revenue'.</td></tr><tr><td>outliers</td><td>Gross Margin</td><td>medium</td><td>Se detectaron 549 outliers en 'Gross Margin'.</td></tr><tr><td>pii_detected</td><td>Unit Price</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Price'.</td></tr><tr><td>pii_detected</td><td>Unit Cost</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Unit Cost'.</td></tr><tr><td>pii_detected</td><td>Revenue</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Revenue'.</td></tr><tr><td>pii_detected</td><td>Gross Margin</td><td>high</td><td>Se detectaron posibles datos sensibles en 'Gross Margin'.</td></tr></table>
+    <h2>Diccionario de datos</h2>
+    <table><tr><th>Columna</th><th>Tipo</th><th>% Nulos</th><th>Únicos</th></tr><tr><td>OrderNumber</td><td>categorical/text</td><td>0.0</td><td>7991</td></tr><tr><td>Sales Channel</td><td>categorical/text</td><td>0.0</td><td>4</td></tr><tr><td>OrderDate</td><td>date</td><td>0.0</td><td>945</td></tr><tr><td>DeliveryDate</td><td>date</td><td>0.0</td><td>966</td></tr><tr><td>DeliveryTime</td><td>numeric</td><td>0.0</td><td>36</td></tr><tr><td>_SalesTeamID</td><td>numeric</td><td>0.0</td><td>28</td></tr><tr><td>_CustomerID</td><td>numeric</td><td>0.0</td><td>50</td></tr><tr><td>_StoreID</td><td>numeric</td><td>0.0</td><td>367</td></tr><tr><td>_ProductID</td><td>numeric</td><td>0.0</td><td>47</td></tr><tr><td>Order Quantity</td><td>numeric</td><td>0.0</td><td>8</td></tr><tr><td>Unit Price</td><td>numeric</td><td>0.0</td><td>664</td></tr><tr><td>Unit Cost</td><td>numeric</td><td>0.0</td><td>5581</td></tr><tr><td>Revenue</td><td>numeric</td><td>0.0</td><td>2323</td></tr><tr><td>Gross Margin</td><td>numeric</td><td>0.0</td><td>6992</td></tr></table>
+    </body>
+    </html>
+    

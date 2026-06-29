@@ -1,0 +1,252 @@
+{
+  "source_name": "tmpq6u46d4i.xlsx (cleaned)",
+  "summary": {
+    "rows": 7991,
+    "cols": 14,
+    "quality_score": 96
+  },
+  "executive_summary": "La base 'tmpq6u46d4i.xlsx (cleaned)' fue analizada con 2 hallazgos. Score de calidad: 96/100.",
+  "findings": [
+    {
+      "id": "pii_Unit Cost",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Unit Cost",
+      "count": 10,
+      "examples": [
+        "1001.181",
+        "2211.201",
+        "1212.968",
+        "2510.088",
+        "2450.324"
+      ],
+      "message": "Se detectaron posibles datos sensibles en 'Unit Cost'.",
+      "suggested_action": {
+        "action_type": "mask_pii",
+        "parameters": {
+          "column": "Unit Cost",
+          "pii_types": [
+            "dni"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pii_Gross Margin",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Gross Margin",
+      "count": 8,
+      "examples": [
+        "6881.704",
+        "2959.725",
+        "5947.456",
+        "2051.205",
+        "2360.008"
+      ],
+      "message": "Se detectaron posibles datos sensibles en 'Gross Margin'.",
+      "suggested_action": {
+        "action_type": "mask_pii",
+        "parameters": {
+          "column": "Gross Margin",
+          "pii_types": [
+            "dni"
+          ]
+        }
+      }
+    }
+  ],
+  "findings_display": [
+    {
+      "id": "pii_Unit Cost",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Unit Cost",
+      "count": 10,
+      "metric": null,
+      "message": "Se detectaron posibles datos sensibles en 'Unit Cost'.",
+      "examples": "[\"1001.181\", \"2211.201\", \"1212.968\", \"2510.088\", \"2450.324\"]"
+    },
+    {
+      "id": "pii_Gross Margin",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Gross Margin",
+      "count": 8,
+      "metric": null,
+      "message": "Se detectaron posibles datos sensibles en 'Gross Margin'.",
+      "examples": "[\"6881.704\", \"2959.725\", \"5947.456\", \"2051.205\", \"2360.008\"]"
+    }
+  ],
+  "comparison": null,
+  "data_dictionary": [
+    {
+      "column": "OrderNumber",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 7991,
+      "top_values": "so - 000101, so - 000102, so - 000103",
+      "samples": "SO - 000101, SO - 000102, SO - 000103"
+    },
+    {
+      "column": "Sales Channel",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 4,
+      "top_values": "in-store, online, distributor",
+      "samples": "In-Store, Online, Distributor"
+    },
+    {
+      "column": "OrderDate",
+      "inferred_type": "date",
+      "raw_dtype": "datetime64[us]",
+      "null_pct": 0.0,
+      "n_unique": 945,
+      "top_values": "2018-08-04, 2019-05-04, 2019-01-20",
+      "samples": "2018-05-31, 2018-05-31, 2018-05-31"
+    },
+    {
+      "column": "DeliveryDate",
+      "inferred_type": "date",
+      "raw_dtype": "datetime64[us]",
+      "null_pct": 0.0,
+      "n_unique": 966,
+      "top_values": "2019-09-30, 2020-06-13, 2020-09-16",
+      "samples": "2018-06-19, 2018-07-02, 2018-07-01"
+    },
+    {
+      "column": "DeliveryTime",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 36,
+      "top_values": "21, 29, 27",
+      "samples": "19, 32, 31"
+    },
+    {
+      "column": "_SalesTeamID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 28,
+      "top_values": "13, 18, 8",
+      "samples": "6, 14, 21"
+    },
+    {
+      "column": "_CustomerID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 50,
+      "top_values": "12, 18, 3",
+      "samples": "15, 20, 16"
+    },
+    {
+      "column": "_StoreID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 367,
+      "top_values": "26, 284, 17",
+      "samples": "259, 196, 213"
+    },
+    {
+      "column": "_ProductID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 47,
+      "top_values": "37, 4, 8",
+      "samples": "12, 27, 16"
+    },
+    {
+      "column": "Order Quantity",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 8,
+      "top_values": "8, 3, 1",
+      "samples": "5, 3, 1"
+    },
+    {
+      "column": "Unit Price",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 664,
+      "top_values": "1051.9, 1005.0, 1125.[phone]",
+      "samples": "1963.[phone], 3939.6, 1775.5"
+    },
+    {
+      "column": "Unit Cost",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 4683,
+      "top_values": "3948.[phone], 89.311, 120.[phone]",
+      "samples": "1001.181, 3348.66, 781.22"
+    },
+    {
+      "column": "Revenue",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 2019,
+      "top_values": "31463.2, 247.9, 1038.5",
+      "samples": "9815.5, 11818.8, 1775.5"
+    },
+    {
+      "column": "Gross Margin",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 5252,
+      "top_values": "10571.54475, 90.50494, 857.[phone]",
+      "samples": "4809.[phone], 1772.[phone], 994.28"
+    }
+  ],
+  "llm_recommendations": {},
+  "llm_derived": null,
+  "alerts": [
+    "Alerta alta: Se detectaron posibles datos sensibles en 'Unit Cost'.",
+    "Alerta alta: Se detectaron posibles datos sensibles en 'Gross Margin'."
+  ],
+  "actions": [
+    {
+      "id": "mask_pii:{'column': 'Unit Cost', 'pii_types': ['dni']}",
+      "title": "Enmascarar PII en 'Unit Cost'",
+      "description": "Se detectaron posibles datos sensibles en 'Unit Cost'.",
+      "action_type": "mask_pii",
+      "parameters": {
+        "column": "Unit Cost",
+        "pii_types": [
+          "dni"
+        ]
+      },
+      "risk_level": "low",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "note": "Preview no disponible"
+      }
+    },
+    {
+      "id": "mask_pii:{'column': 'Gross Margin', 'pii_types': ['dni']}",
+      "title": "Enmascarar PII en 'Gross Margin'",
+      "description": "Se detectaron posibles datos sensibles en 'Gross Margin'.",
+      "action_type": "mask_pii",
+      "parameters": {
+        "column": "Gross Margin",
+        "pii_types": [
+          "dni"
+        ]
+      },
+      "risk_level": "low",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "note": "Preview no disponible"
+      }
+    }
+  ]
+}

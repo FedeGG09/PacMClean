@@ -1,0 +1,586 @@
+{
+  "source_name": "tmpxmhuacyu.xlsx",
+  "summary": {
+    "rows": 7991,
+    "cols": 14,
+    "quality_score": 88
+  },
+  "executive_summary": "Basado en el JSON proporcionado, aquí están las recomendaciones para mejorar la calidad de los datos:\n\n1. **Outliers**:\n   - Se han detectado outliers significativos en tres columnas numéricas: `Unit Cost`, `Revenue` y `Gross Margin`. La cantidad de outliers es considerable (247, 323 y 549 respectivamente).\n     - **Recomendación**: Considerar la eliminación o el recorte de estos valores atípicos utilizando un método robusto como IQR para mitigar su impacto en los análisis estadísticos.\n\n2. **Datos Sensibles (PII)**:\n   - Se han identificado posibles datos personales sensibles (PII) en las columnas `Unit Price`, `Unit Cost`, `Revenue` y `Gross Margin`.\n     - **Recomendación**: Aplicar una máscara o anonimización a estos valores para proteger la privacidad de los individuos involucrados. Específicamente, se sugiere utilizar tipos de PII como \"dni\" y \"phone\".\n\n3. **Consistencia en el formato de texto**:\n   - La columna `Sales Channel` tiene inconsistencias en el formato del texto (ejemplo: \"In-Store\", \"in-store\").\n     - **Recomendación**: Normalizar los valores textuales para asegurar consistencia, por ejemplo, convertir todos a minúsculas o mayúsculas.\n\n4. **Consistencia en las fechas**:\n   - Las columnas `OrderDate` y `DeliveryDate` tienen un formato de fecha consistente.\n     - **Recomendación**: Asegurarse que todas las fechas sigan el mismo formato (YYYY-MM-DD) para facilitar la manipulación y análisis.\n\n5. **Consistencia en los identificadores**:\n   - Las columnas `_SalesTeamID`, `_CustomerID`, `_StoreID` y `_ProductID` tienen un alto número de valores únicos, lo que sugiere una alta cardinalidad.\n     - **Recomendación**: Evaluar si es necesario reducir la cardinalidad de estas columnas para mejorar el rendimiento del análisis. Esto podría implicar la agrupación o categorización de ciertos identificadores.\n\nEstas recomendaciones ayudarán a mejorar la calidad y consistencia de los datos, facilitando así un mejor análisis y toma de decisiones basada en estos datos.",
+  "findings": [
+    {
+      "id": "outliers_Unit Cost",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Unit Cost",
+      "count": 247,
+      "metric": 3.09,
+      "message": "Se detectaron 247 outliers en 'Unit Cost'.",
+      "examples": [
+        {
+          "Unit Cost": 5161.68
+        },
+        {
+          "Unit Cost": 4673.719
+        },
+        {
+          "Unit Cost": 4534.5599999999995
+        },
+        {
+          "Unit Cost": 4300.8640000000005
+        },
+        {
+          "Unit Cost": 4556.402
+        }
+      ],
+      "suggested_action": {
+        "action_type": "clip_outliers",
+        "parameters": {
+          "column": "Unit Cost",
+          "method": "iqr"
+        }
+      }
+    },
+    {
+      "id": "outliers_Revenue",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Revenue",
+      "count": 323,
+      "metric": 4.04,
+      "message": "Se detectaron 323 outliers en 'Revenue'.",
+      "examples": [
+        {
+          "Revenue": 42538.3
+        },
+        {
+          "Revenue": 40146.4
+        },
+        {
+          "Revenue": 45613.6
+        },
+        {
+          "Revenue": 45164.700000000004
+        },
+        {
+          "Revenue": 37948.8
+        }
+      ],
+      "suggested_action": {
+        "action_type": "clip_outliers",
+        "parameters": {
+          "column": "Revenue",
+          "method": "iqr"
+        }
+      }
+    },
+    {
+      "id": "outliers_Gross Margin",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Gross Margin",
+      "count": 549,
+      "metric": 6.87,
+      "message": "Se detectaron 549 outliers en 'Gross Margin'.",
+      "examples": [
+        {
+          "Gross Margin": 17578.120000000003
+        },
+        {
+          "Gross Margin": 23396.065
+        },
+        {
+          "Gross Margin": 19613.848
+        },
+        {
+          "Gross Margin": 17462.879999999997
+        },
+        {
+          "Gross Margin": 13946.184000000001
+        }
+      ],
+      "suggested_action": {
+        "action_type": "clip_outliers",
+        "parameters": {
+          "column": "Gross Margin",
+          "method": "iqr"
+        }
+      }
+    },
+    {
+      "id": "pii_Unit Price",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Unit Price",
+      "count": 9,
+      "examples": [
+        "1963.1000000000001",
+        "1192.6000000000001",
+        "6277.900000000001",
+        "174.20000000000002",
+        "2988.2000000000003"
+      ],
+      "message": "Se detectaron posibles datos sensibles en 'Unit Price'.",
+      "suggested_action": {
+        "action_type": "mask_pii",
+        "parameters": {
+          "column": "Unit Price",
+          "pii_types": [
+            "phone"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pii_Unit Cost",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Unit Cost",
+      "count": 33,
+      "examples": [
+        "1001.181",
+        "1464.6870000000001",
+        "1476.1440000000002",
+        "536.6700000000001",
+        "1525.1879999999999"
+      ],
+      "message": "Se detectaron posibles datos sensibles en 'Unit Cost'.",
+      "suggested_action": {
+        "action_type": "mask_pii",
+        "parameters": {
+          "column": "Unit Cost",
+          "pii_types": [
+            "dni",
+            "phone"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pii_Revenue",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Revenue",
+      "count": 7,
+      "examples": [
+        "4770.400000000001",
+        "31389.500000000004",
+        "3336.6000000000004",
+        "7986.400000000001",
+        "16837.100000000002"
+      ],
+      "message": "Se detectaron posibles datos sensibles en 'Revenue'.",
+      "suggested_action": {
+        "action_type": "mask_pii",
+        "parameters": {
+          "column": "Revenue",
+          "pii_types": [
+            "phone"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pii_Gross Margin",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Gross Margin",
+      "count": 39,
+      "examples": [
+        "4809.594999999999",
+        "1772.8199999999997",
+        "6881.704",
+        "2770.047999999999",
+        "2959.725"
+      ],
+      "message": "Se detectaron posibles datos sensibles en 'Gross Margin'.",
+      "suggested_action": {
+        "action_type": "mask_pii",
+        "parameters": {
+          "column": "Gross Margin",
+          "pii_types": [
+            "dni",
+            "phone"
+          ]
+        }
+      }
+    }
+  ],
+  "findings_display": [
+    {
+      "id": "outliers_Unit Cost",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Unit Cost",
+      "count": 247,
+      "metric": 3.09,
+      "message": "Se detectaron 247 outliers en 'Unit Cost'.",
+      "examples": "[{\"Unit Cost\": 5161.68}, {\"Unit Cost\": 4673.719}, {\"Unit Cost\": 4534.5599999999995}, {\"Unit Cost\": 4300.8640000000005}, {\"Unit Cost\": 4556.402}]"
+    },
+    {
+      "id": "outliers_Revenue",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Revenue",
+      "count": 323,
+      "metric": 4.04,
+      "message": "Se detectaron 323 outliers en 'Revenue'.",
+      "examples": "[{\"Revenue\": 42538.3}, {\"Revenue\": 40146.4}, {\"Revenue\": 45613.6}, {\"Revenue\": 45164.700000000004}, {\"Revenue\": 37948.8}]"
+    },
+    {
+      "id": "outliers_Gross Margin",
+      "type": "outliers",
+      "severity": "medium",
+      "column": "Gross Margin",
+      "count": 549,
+      "metric": 6.87,
+      "message": "Se detectaron 549 outliers en 'Gross Margin'.",
+      "examples": "[{\"Gross Margin\": 17578.120000000003}, {\"Gross Margin\": 23396.065}, {\"Gross Margin\": 19613.848}, {\"Gross Margin\": 17462.879999999997}, {\"Gross Margin\": 13946.184000000001}]"
+    },
+    {
+      "id": "pii_Unit Price",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Unit Price",
+      "count": 9,
+      "metric": null,
+      "message": "Se detectaron posibles datos sensibles en 'Unit Price'.",
+      "examples": "[\"1963.1000000000001\", \"1192.6000000000001\", \"6277.900000000001\", \"174.20000000000002\", \"2988.2000000000003\"]"
+    },
+    {
+      "id": "pii_Unit Cost",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Unit Cost",
+      "count": 33,
+      "metric": null,
+      "message": "Se detectaron posibles datos sensibles en 'Unit Cost'.",
+      "examples": "[\"1001.181\", \"1464.6870000000001\", \"1476.1440000000002\", \"536.6700000000001\", \"1525.1879999999999\"]"
+    },
+    {
+      "id": "pii_Revenue",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Revenue",
+      "count": 7,
+      "metric": null,
+      "message": "Se detectaron posibles datos sensibles en 'Revenue'.",
+      "examples": "[\"4770.400000000001\", \"31389.500000000004\", \"3336.6000000000004\", \"7986.400000000001\", \"16837.100000000002\"]"
+    },
+    {
+      "id": "pii_Gross Margin",
+      "type": "pii_detected",
+      "severity": "high",
+      "column": "Gross Margin",
+      "count": 39,
+      "metric": null,
+      "message": "Se detectaron posibles datos sensibles en 'Gross Margin'.",
+      "examples": "[\"4809.594999999999\", \"1772.8199999999997\", \"6881.704\", \"2770.047999999999\", \"2959.725\"]"
+    }
+  ],
+  "comparison": null,
+  "data_dictionary": [
+    {
+      "column": "OrderNumber",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 7991,
+      "top_values": "so - 000101, so - 000102, so - 000103",
+      "samples": "SO - 000101, SO - 000102, SO - 000103"
+    },
+    {
+      "column": "Sales Channel",
+      "inferred_type": "categorical/text",
+      "raw_dtype": "str",
+      "null_pct": 0.0,
+      "n_unique": 4,
+      "top_values": "in-store, online, distributor",
+      "samples": "In-Store, Online, Distributor"
+    },
+    {
+      "column": "OrderDate",
+      "inferred_type": "date",
+      "raw_dtype": "datetime64[us]",
+      "null_pct": 0.0,
+      "n_unique": 945,
+      "top_values": "2018-08-04, 2019-05-04, 2019-01-20",
+      "samples": "2018-05-31, 2018-05-31, 2018-05-31"
+    },
+    {
+      "column": "DeliveryDate",
+      "inferred_type": "date",
+      "raw_dtype": "datetime64[us]",
+      "null_pct": 0.0,
+      "n_unique": 966,
+      "top_values": "2019-09-30, 2020-06-13, 2020-09-16",
+      "samples": "2018-06-19, 2018-07-02, 2018-07-01"
+    },
+    {
+      "column": "DeliveryTime",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 36,
+      "top_values": "21, 29, 27",
+      "samples": "19, 32, 31"
+    },
+    {
+      "column": "_SalesTeamID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 28,
+      "top_values": "13, 18, 8",
+      "samples": "6, 14, 21"
+    },
+    {
+      "column": "_CustomerID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 50,
+      "top_values": "12, 18, 3",
+      "samples": "15, 20, 16"
+    },
+    {
+      "column": "_StoreID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 367,
+      "top_values": "26, 284, 17",
+      "samples": "259, 196, 213"
+    },
+    {
+      "column": "_ProductID",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 47,
+      "top_values": "37, 4, 8",
+      "samples": "12, 27, 16"
+    },
+    {
+      "column": "Order Quantity",
+      "inferred_type": "numeric",
+      "raw_dtype": "int64",
+      "null_pct": 0.0,
+      "n_unique": 8,
+      "top_values": "8, 3, 1",
+      "samples": "5, 3, 1"
+    },
+    {
+      "column": "Unit Price",
+      "inferred_type": "numeric",
+      "raw_dtype": "float64",
+      "null_pct": 0.0,
+      "n_unique": 664,
+      "top_values": "1051.9, 1005.0, 1125.6000000000001",
+      "samples": "1963.1000000000001, 3939.6, 1775.5"
+    },
+    {
+      "column": "Unit Cost",
+      "inferred_type": "numeric",
+      "raw_dtype": "float64",
+      "null_pct": 0.0,
+      "n_unique": 5581,
+      "top_values": "743.7, 502.5, 933.9799999999999",
+      "samples": "1001.181, 3348.66, 781.22"
+    },
+    {
+      "column": "Revenue",
+      "inferred_type": "numeric",
+      "raw_dtype": "float64",
+      "null_pct": 0.0,
+      "n_unique": 2323,
+      "top_values": "1038.5, 3376.8, 1072.0",
+      "samples": "9815.5, 11818.8, 1775.5"
+    },
+    {
+      "column": "Gross Margin",
+      "inferred_type": "numeric",
+      "raw_dtype": "float64",
+      "null_pct": 0.0,
+      "n_unique": 6992,
+      "top_values": "1206.0, 477.576, 1056.9920000000002",
+      "samples": "4809.594999999999, 1772.8199999999997, 994.28"
+    }
+  ],
+  "llm_recommendations": {
+    "executive_summary": "Basado en el JSON proporcionado, aquí están las recomendaciones para mejorar la calidad de los datos:\n\n1. **Outliers**:\n   - Se han detectado outliers significativos en tres columnas numéricas: `Unit Cost`, `Revenue` y `Gross Margin`. La cantidad de outliers es considerable (247, 323 y 549 respectivamente).\n     - **Recomendación**: Considerar la eliminación o el recorte de estos valores atípicos utilizando un método robusto como IQR para mitigar su impacto en los análisis estadísticos.\n\n2. **Datos Sensibles (PII)**:\n   - Se han identificado posibles datos personales sensibles (PII) en las columnas `Unit Price`, `Unit Cost`, `Revenue` y `Gross Margin`.\n     - **Recomendación**: Aplicar una máscara o anonimización a estos valores para proteger la privacidad de los individuos involucrados. Específicamente, se sugiere utilizar tipos de PII como \"dni\" y \"phone\".\n\n3. **Consistencia en el formato de texto**:\n   - La columna `Sales Channel` tiene inconsistencias en el formato del texto (ejemplo: \"In-Store\", \"in-store\").\n     - **Recomendación**: Normalizar los valores textuales para asegurar consistencia, por ejemplo, convertir todos a minúsculas o mayúsculas.\n\n4. **Consistencia en las fechas**:\n   - Las columnas `OrderDate` y `DeliveryDate` tienen un formato de fecha consistente.\n     - **Recomendación**: Asegurarse que todas las fechas sigan el mismo formato (YYYY-MM-DD) para facilitar la manipulación y análisis.\n\n5. **Consistencia en los identificadores**:\n   - Las columnas `_SalesTeamID`, `_CustomerID`, `_StoreID` y `_ProductID` tienen un alto número de valores únicos, lo que sugiere una alta cardinalidad.\n     - **Recomendación**: Evaluar si es necesario reducir la cardinalidad de estas columnas para mejorar el rendimiento del análisis. Esto podría implicar la agrupación o categorización de ciertos identificadores.\n\nEstas recomendaciones ayudarán a mejorar la calidad y consistencia de los datos, facilitando así un mejor análisis y toma de decisiones basada en estos datos.",
+    "raw": "Basado en el JSON proporcionado, aquí están las recomendaciones para mejorar la calidad de los datos:\n\n1. **Outliers**:\n   - Se han detectado outliers significativos en tres columnas numéricas: `Unit Cost`, `Revenue` y `Gross Margin`. La cantidad de outliers es considerable (247, 323 y 549 respectivamente).\n     - **Recomendación**: Considerar la eliminación o el recorte de estos valores atípicos utilizando un método robusto como IQR para mitigar su impacto en los análisis estadísticos.\n\n2. **Datos Sensibles (PII)**:\n   - Se han identificado posibles datos personales sensibles (PII) en las columnas `Unit Price`, `Unit Cost`, `Revenue` y `Gross Margin`.\n     - **Recomendación**: Aplicar una máscara o anonimización a estos valores para proteger la privacidad de los individuos involucrados. Específicamente, se sugiere utilizar tipos de PII como \"dni\" y \"phone\".\n\n3. **Consistencia en el formato de texto**:\n   - La columna `Sales Channel` tiene inconsistencias en el formato del texto (ejemplo: \"In-Store\", \"in-store\").\n     - **Recomendación**: Normalizar los valores textuales para asegurar consistencia, por ejemplo, convertir todos a minúsculas o mayúsculas.\n\n4. **Consistencia en las fechas**:\n   - Las columnas `OrderDate` y `DeliveryDate` tienen un formato de fecha consistente.\n     - **Recomendación**: Asegurarse que todas las fechas sigan el mismo formato (YYYY-MM-DD) para facilitar la manipulación y análisis.\n\n5. **Consistencia en los identificadores**:\n   - Las columnas `_SalesTeamID`, `_CustomerID`, `_StoreID` y `_ProductID` tienen un alto número de valores únicos, lo que sugiere una alta cardinalidad.\n     - **Recomendación**: Evaluar si es necesario reducir la cardinalidad de estas columnas para mejorar el rendimiento del análisis. Esto podría implicar la agrupación o categorización de ciertos identificadores.\n\nEstas recomendaciones ayudarán a mejorar la calidad y consistencia de los datos, facilitando así un mejor análisis y toma de decisiones basada en estos datos."
+  },
+  "llm_derived": null,
+  "alerts": [
+    "Degradación de calidad: el score bajó de 96 a 88.",
+    "Alerta alta: Se detectaron posibles datos sensibles en 'Unit Price'.",
+    "Alerta alta: Se detectaron posibles datos sensibles en 'Unit Cost'.",
+    "Alerta alta: Se detectaron posibles datos sensibles en 'Revenue'.",
+    "Alerta alta: Se detectaron posibles datos sensibles en 'Gross Margin'."
+  ],
+  "actions": [
+    {
+      "id": "clip_outliers:{'column': 'Unit Cost', 'method': 'iqr'}",
+      "title": "Limitar outliers en 'Unit Cost'",
+      "description": "Se detectaron 247 outliers en 'Unit Cost'.",
+      "action_type": "clip_outliers",
+      "parameters": {
+        "column": "Unit Cost",
+        "method": "iqr"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "outlier_rows": [
+          {
+            "Unit Cost": 5161.68
+          },
+          {
+            "Unit Cost": 4673.719
+          },
+          {
+            "Unit Cost": 4534.5599999999995
+          },
+          {
+            "Unit Cost": 4300.8640000000005
+          },
+          {
+            "Unit Cost": 4556.402
+          }
+        ]
+      }
+    },
+    {
+      "id": "clip_outliers:{'column': 'Revenue', 'method': 'iqr'}",
+      "title": "Limitar outliers en 'Revenue'",
+      "description": "Se detectaron 323 outliers en 'Revenue'.",
+      "action_type": "clip_outliers",
+      "parameters": {
+        "column": "Revenue",
+        "method": "iqr"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "outlier_rows": [
+          {
+            "Revenue": 42538.3
+          },
+          {
+            "Revenue": 40146.4
+          },
+          {
+            "Revenue": 45613.6
+          },
+          {
+            "Revenue": 45164.700000000004
+          },
+          {
+            "Revenue": 37948.8
+          }
+        ]
+      }
+    },
+    {
+      "id": "clip_outliers:{'column': 'Gross Margin', 'method': 'iqr'}",
+      "title": "Limitar outliers en 'Gross Margin'",
+      "description": "Se detectaron 549 outliers en 'Gross Margin'.",
+      "action_type": "clip_outliers",
+      "parameters": {
+        "column": "Gross Margin",
+        "method": "iqr"
+      },
+      "risk_level": "medium",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "outlier_rows": [
+          {
+            "Gross Margin": 17578.120000000003
+          },
+          {
+            "Gross Margin": 23396.065
+          },
+          {
+            "Gross Margin": 19613.848
+          },
+          {
+            "Gross Margin": 17462.879999999997
+          },
+          {
+            "Gross Margin": 13946.184000000001
+          }
+        ]
+      }
+    },
+    {
+      "id": "mask_pii:{'column': 'Unit Price', 'pii_types': ['phone']}",
+      "title": "Enmascarar PII en 'Unit Price'",
+      "description": "Se detectaron posibles datos sensibles en 'Unit Price'.",
+      "action_type": "mask_pii",
+      "parameters": {
+        "column": "Unit Price",
+        "pii_types": [
+          "phone"
+        ]
+      },
+      "risk_level": "low",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "note": "Preview no disponible"
+      }
+    },
+    {
+      "id": "mask_pii:{'column': 'Unit Cost', 'pii_types': ['dni', 'phone']}",
+      "title": "Enmascarar PII en 'Unit Cost'",
+      "description": "Se detectaron posibles datos sensibles en 'Unit Cost'.",
+      "action_type": "mask_pii",
+      "parameters": {
+        "column": "Unit Cost",
+        "pii_types": [
+          "dni",
+          "phone"
+        ]
+      },
+      "risk_level": "low",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "note": "Preview no disponible"
+      }
+    },
+    {
+      "id": "mask_pii:{'column': 'Revenue', 'pii_types': ['phone']}",
+      "title": "Enmascarar PII en 'Revenue'",
+      "description": "Se detectaron posibles datos sensibles en 'Revenue'.",
+      "action_type": "mask_pii",
+      "parameters": {
+        "column": "Revenue",
+        "pii_types": [
+          "phone"
+        ]
+      },
+      "risk_level": "low",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "note": "Preview no disponible"
+      }
+    },
+    {
+      "id": "mask_pii:{'column': 'Gross Margin', 'pii_types': ['dni', 'phone']}",
+      "title": "Enmascarar PII en 'Gross Margin'",
+      "description": "Se detectaron posibles datos sensibles en 'Gross Margin'.",
+      "action_type": "mask_pii",
+      "parameters": {
+        "column": "Gross Margin",
+        "pii_types": [
+          "dni",
+          "phone"
+        ]
+      },
+      "risk_level": "low",
+      "estimated_affected_rows": 7991,
+      "preview": {
+        "note": "Preview no disponible"
+      }
+    }
+  ]
+}
