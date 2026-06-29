@@ -18,6 +18,9 @@ Inspirado en la estética arcade de los 80s, PacClean “devora” inconsistenci
 - `main.py` : CLI
 - `sample_rules.yaml` : reglas base
 
+<img width="1682" height="907" alt="image" src="https://github.com/user-attachments/assets/c4e3ca60-037d-489f-a8d8-0ee6cee039c8" />
+
+
 ## Backend
 
 ### Instalar
