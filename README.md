@@ -68,8 +68,9 @@ $env:VITE_API_URL="http://127.0.0.1:8000"
 4. Descargás el archivo corregido.
 5. Exportás a Power BI con un botón.
 
-## Notas
+## 🎥 Demo
 
-- El front usa una estética azul/blanco/gris inspirada en la referencia adjunta.
-- No se incluyen logos ni marcas.
-- Los gráficos se omitieron a propósito para que Power BI sea el lugar final de visualización.
+Mirá cómo funciona PacMClean AI en acción:
+
+
+[![PacClean Demo](https://img.youtube.com/vi/yfrD19grPUw/maxresdefault.jpg)](https://youtu.be/yfrD19grPUw)
